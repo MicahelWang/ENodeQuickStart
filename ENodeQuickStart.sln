@@ -1,0 +1,104 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hosts", "Hosts", "{CB57E57A-9414-4A9E-B772-44959E058AFB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{CAC8A5C1-C451-4568-8E2D-C74902FE2E69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENodeQuickStart.BrokerService", "Hosts\ENodeQuickStart.BrokerService\ENodeQuickStart.BrokerService.csproj", "{5FD43400-AEA2-4496-9980-A5489CDBED16}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENodeQuickStart.Web", "Hosts\ENodeQuickStart.Web\ENodeQuickStart.Web.csproj", "{60B2424E-E3BC-42E1-9F34-46C34C9ED64C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENodeQuickStart.CommandService", "Hosts\ENodeQuickStart.CommandService\ENodeQuickStart.CommandService.csproj", "{51DC4497-F6EA-4214-A56A-32282790513D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENodeQuickStart.EventService", "Hosts\ENodeQuickStart.EventService\ENodeQuickStart.EventService.csproj", "{39EA61E1-B855-410B-AEEA-FA8F79C9C2B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENodeQuickStart.CommandHandlers", "ENodeQuickStart.CommandHandlers\ENodeQuickStart.CommandHandlers.csproj", "{B4E9A38F-B08A-4725-BA22-C7C80215743C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENodeQuickStart.Comands", "ENodeQuickStart.Comands\ENodeQuickStart.Comands.csproj", "{B7EC9219-568E-4926-9BD4-03478F3FDB1C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENodeQuickStart.Denormalizers.Dapper", "ENodeQuickStart.Denormalizers.Dapper\ENodeQuickStart.Denormalizers.Dapper.csproj", "{1250C077-9ABC-45DC-B3B9-F0FCD0DD9608}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENodeQuickStart.Domain", "ENodeQuickStart.Domain\ENodeQuickStart.Domain.csproj", "{0D1EA1A3-7365-4BC4-B6DC-71103B80F14B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENodeQuickStart.Domain.Dapper", "ENodeQuickStart.Domain.Dapper\ENodeQuickStart.Domain.Dapper.csproj", "{44D0891C-805E-432C-9AF5-B23BB4086AC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENodeQuickStart.Infrastructure", "ENodeQuickStart.Infrastructure\ENodeQuickStart.Infrastructure.csproj", "{649ACF0B-5C8B-4759-AA47-1E6587EF990E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENodeQuickStart.ProcessManagers", "ENodeQuickStart.ProcessManagers\ENodeQuickStart.ProcessManagers.csproj", "{0F2B9F9F-3E88-4BC3-ACB0-AF605753B0D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENodeQuickStart.QueryServices", "ENodeQuickStart.QueryServices\ENodeQuickStart.QueryServices.csproj", "{2A0E2CBE-B89E-40C5-A914-7B9B1430F798}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENodeQuickStart.QueryServices.Dapper", "ENodeQuickStart.QueryServices.Dapper\ENodeQuickStart.QueryServices.Dapper.csproj", "{20891914-CC5E-4BFC-B59B-8D81F4ED0FA2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5FD43400-AEA2-4496-9980-A5489CDBED16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FD43400-AEA2-4496-9980-A5489CDBED16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FD43400-AEA2-4496-9980-A5489CDBED16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FD43400-AEA2-4496-9980-A5489CDBED16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60B2424E-E3BC-42E1-9F34-46C34C9ED64C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60B2424E-E3BC-42E1-9F34-46C34C9ED64C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60B2424E-E3BC-42E1-9F34-46C34C9ED64C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60B2424E-E3BC-42E1-9F34-46C34C9ED64C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51DC4497-F6EA-4214-A56A-32282790513D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51DC4497-F6EA-4214-A56A-32282790513D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51DC4497-F6EA-4214-A56A-32282790513D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51DC4497-F6EA-4214-A56A-32282790513D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39EA61E1-B855-410B-AEEA-FA8F79C9C2B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39EA61E1-B855-410B-AEEA-FA8F79C9C2B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39EA61E1-B855-410B-AEEA-FA8F79C9C2B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39EA61E1-B855-410B-AEEA-FA8F79C9C2B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4E9A38F-B08A-4725-BA22-C7C80215743C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4E9A38F-B08A-4725-BA22-C7C80215743C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4E9A38F-B08A-4725-BA22-C7C80215743C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4E9A38F-B08A-4725-BA22-C7C80215743C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7EC9219-568E-4926-9BD4-03478F3FDB1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7EC9219-568E-4926-9BD4-03478F3FDB1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7EC9219-568E-4926-9BD4-03478F3FDB1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7EC9219-568E-4926-9BD4-03478F3FDB1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1250C077-9ABC-45DC-B3B9-F0FCD0DD9608}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1250C077-9ABC-45DC-B3B9-F0FCD0DD9608}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1250C077-9ABC-45DC-B3B9-F0FCD0DD9608}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1250C077-9ABC-45DC-B3B9-F0FCD0DD9608}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D1EA1A3-7365-4BC4-B6DC-71103B80F14B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D1EA1A3-7365-4BC4-B6DC-71103B80F14B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D1EA1A3-7365-4BC4-B6DC-71103B80F14B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D1EA1A3-7365-4BC4-B6DC-71103B80F14B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44D0891C-805E-432C-9AF5-B23BB4086AC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44D0891C-805E-432C-9AF5-B23BB4086AC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44D0891C-805E-432C-9AF5-B23BB4086AC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44D0891C-805E-432C-9AF5-B23BB4086AC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{649ACF0B-5C8B-4759-AA47-1E6587EF990E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{649ACF0B-5C8B-4759-AA47-1E6587EF990E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{649ACF0B-5C8B-4759-AA47-1E6587EF990E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{649ACF0B-5C8B-4759-AA47-1E6587EF990E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F2B9F9F-3E88-4BC3-ACB0-AF605753B0D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F2B9F9F-3E88-4BC3-ACB0-AF605753B0D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F2B9F9F-3E88-4BC3-ACB0-AF605753B0D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F2B9F9F-3E88-4BC3-ACB0-AF605753B0D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A0E2CBE-B89E-40C5-A914-7B9B1430F798}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A0E2CBE-B89E-40C5-A914-7B9B1430F798}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A0E2CBE-B89E-40C5-A914-7B9B1430F798}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A0E2CBE-B89E-40C5-A914-7B9B1430F798}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20891914-CC5E-4BFC-B59B-8D81F4ED0FA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20891914-CC5E-4BFC-B59B-8D81F4ED0FA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20891914-CC5E-4BFC-B59B-8D81F4ED0FA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20891914-CC5E-4BFC-B59B-8D81F4ED0FA2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5FD43400-AEA2-4496-9980-A5489CDBED16} = {CB57E57A-9414-4A9E-B772-44959E058AFB}
+		{60B2424E-E3BC-42E1-9F34-46C34C9ED64C} = {CB57E57A-9414-4A9E-B772-44959E058AFB}
+		{51DC4497-F6EA-4214-A56A-32282790513D} = {CB57E57A-9414-4A9E-B772-44959E058AFB}
+		{39EA61E1-B855-410B-AEEA-FA8F79C9C2B8} = {CB57E57A-9414-4A9E-B772-44959E058AFB}
+	EndGlobalSection
+EndGlobal

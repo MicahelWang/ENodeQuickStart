@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
+﻿using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ECommon.Components;
 using ECommon.Dapper;
 using ENodeQuickStart.Domain.Accounts;
@@ -45,7 +41,7 @@ namespace ENodeQuickStart.Domain.Dapper
 
         private SqlConnection GetConnection()
         {
-            return new SqlConnection(ConfigSettings.ForumConnectionString);
+            return new SqlConnection(ConfigSettings.ENodeQuickStartConnectionString);
         }
     }
 }

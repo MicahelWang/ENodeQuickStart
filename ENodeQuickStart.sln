@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hosts", "Hosts", "{CB57E57A-9414-4A9E-B772-44959E058AFB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{CAC8A5C1-C451-4568-8E2D-C74902FE2E69}"
+	ProjectSection(SolutionItems) = preProject
+		Scripts\InstallDb.sql = Scripts\InstallDb.sql
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENodeQuickStart.BrokerService", "Hosts\ENodeQuickStart.BrokerService\ENodeQuickStart.BrokerService.csproj", "{5FD43400-AEA2-4496-9980-A5489CDBED16}"
 EndProject

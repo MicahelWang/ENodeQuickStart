@@ -60,11 +60,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="AccountQueryService.cs" />
+    <Compile Include="BaseQueryService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ENodeQuickStart.Infrastructure\ENodeQuickStart.Infrastructure.csproj">
+      <Project>{649acf0b-5c8b-4759-aa47-1e6587ef990e}</Project>
+      <Name>ENodeQuickStart.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ENodeQuickStart.QueryServices\ENodeQuickStart.QueryServices.csproj">
+      <Project>{2a0e2cbe-b89e-40c5-a914-7b9b1430f798}</Project>
+      <Name>ENodeQuickStart.QueryServices</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,12 +1,15 @@
 ﻿----------------------------------------------------------------------------------------------
 --Tables used by ENodeQuickStart.
 ----------------------------------------------------------------------------------------------
+USE MASTER
+GO
+IF EXISTS (SELECT * FROM MASTER.sys.sysdatabases WHERE NAME = '[ENodeQuickStart]')
+DROP DATABASE [ENodeQuickStart]
+GO
 CREATE DATABASE [ENodeQuickStart]
 GO
-
 use [ENodeQuickStart]
 GO
-
 CREATE TABLE [dbo].[AccountIndex] (
     [AccountId]   NVARCHAR (32) NOT NULL,
     [AccountName] NVARCHAR (64) NOT NULL,
@@ -24,6 +27,34 @@ CREATE TABLE [dbo].[Account](
     [UpdatedOn] [datetime] NOT NULL,
     [Version] [bigint] NOT NULL,
  CONSTRAINT [PK_Account] PRIMARY KEY CLUSTERED 
+(
+    [Id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+CREATE TABLE [dbo].[UserGroup](
+    [Id] [nvarchar](32) NOT NULL,
+    [Sequence] [bigint] IDENTITY(1,1) NOT NULL,
+    [Name] [nvarchar](128) NOT NULL,
+    [RoleId] [nvarchar](32) NULL,
+    [CreatedOn] [datetime] NOT NULL,
+    [UpdatedOn] [datetime] NOT NULL,
+    [Version] [bigint] NOT NULL,
+ CONSTRAINT [PK_UserGroup] PRIMARY KEY CLUSTERED 
+(
+    [Id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+Go
+CREATE TABLE [dbo].[User](
+    [Id] [nvarchar](32) NOT NULL,
+    [Sequence] [bigint] IDENTITY(1,1) NOT NULL,
+    [Name] [nvarchar](128) NOT NULL,
+    [UserGroupId] [nvarchar](32) NULL,
+    [CreatedOn] [datetime] NOT NULL,
+    [UpdatedOn] [datetime] NOT NULL,
+    [Version] [bigint] NOT NULL,
+ CONSTRAINT [PK_User] PRIMARY KEY CLUSTERED 
 (
     [Id] ASC
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
@@ -48,7 +79,32 @@ CREATE TABLE [dbo].[Message](
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-
+CREATE TABLE [dbo].[UserMessageStatistic](
+    [Id] [nvarchar](32) NOT NULL,----UserId
+    [Sequence] [bigint] IDENTITY(1,1) NOT NULL,
+    [MessageCount] [int] NULL,
+    [CreatedOn] [datetime] NOT NULL,
+    [UpdatedOn] [datetime] NOT NULL,
+    [Version] [bigint] NOT NULL,
+ CONSTRAINT [PK_UserMessageStatistic] PRIMARY KEY CLUSTERED 
+(
+    [Id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+CREATE TABLE [dbo].[UserGroupMessageStatistic](
+    [Id] [nvarchar](32) NOT NULL,--UserGroupId
+    [Sequence] [bigint] IDENTITY(1,1) NOT NULL,
+    [MessageCount] [int] NULL,
+    [CreatedOn] [datetime] NOT NULL,
+    [UpdatedOn] [datetime] NOT NULL,
+    [Version] [bigint] NOT NULL,
+ CONSTRAINT [PK_GroupMessageStatistic] PRIMARY KEY CLUSTERED 
+(
+    [Id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
 CREATE TABLE [dbo].[Reply](
     [Id] [nvarchar](32) NOT NULL,
     [Sequence] [bigint] IDENTITY(1,1) NOT NULL,
@@ -65,58 +121,4 @@ CREATE TABLE [dbo].[Reply](
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-
-----------------------------------------------------------------------------------------------
---Tables used by ENode.
-----------------------------------------------------------------------------------------------
-CREATE DATABASE [ENode]
-GO
-USE [ENode]
-GO
-CREATE TABLE [dbo].[Command] (
-    [Sequence]                BIGINT IDENTITY (1, 1) NOT NULL,
-    [CommandId]               NVARCHAR (36)          NOT NULL,
-    [CreatedOn]               DATETIME               NOT NULL,
-    [AggregateRootId]         NVARCHAR (36)          NULL,
-    [MessagePayload]          NVARCHAR (MAX)         NULL,
-    [MessageTypeName]         NVARCHAR (256)         NULL,
-    CONSTRAINT [PK_Command] PRIMARY KEY CLUSTERED ([Sequence] ASC)
-)
-GO
-CREATE UNIQUE INDEX [IX_Command_CommandId] ON [dbo].[Command] ([CommandId] ASC)
-GO
-
-CREATE TABLE [dbo].[EventStream] (
-    [Sequence]              BIGINT IDENTITY (1, 1) NOT NULL,
-    [AggregateRootTypeName] NVARCHAR (256)         NOT NULL,
-    [AggregateRootId]       NVARCHAR (36)          NOT NULL,
-    [Version]               INT                    NOT NULL,
-    [CommandId]             NVARCHAR (36)          NOT NULL,
-    [CreatedOn]             DATETIME               NOT NULL,
-    [Events]                NVARCHAR (MAX)         NOT NULL,
-    CONSTRAINT [PK_EventStream] PRIMARY KEY CLUSTERED ([Sequence] ASC)
-)
-GO
-CREATE UNIQUE INDEX [IX_EventStream_AggId_Version]   ON [dbo].[EventStream] ([AggregateRootId] ASC, [Version] ASC)
-GO
-CREATE UNIQUE INDEX [IX_EventStream_AggId_CommandId] ON [dbo].[EventStream] ([AggregateRootId] ASC, [CommandId] ASC)
-GO
-
-CREATE TABLE [dbo].[PublishedVersion] (
-    [Sequence]                BIGINT IDENTITY (1, 1) NOT NULL,
-    [ProcessorName]           NVARCHAR (128)         NOT NULL,
-    [AggregateRootTypeName]   NVARCHAR (256)         NOT NULL,
-    [AggregateRootId]         NVARCHAR (36)          NOT NULL,
-    [Version]                 INT                    NOT NULL,
-    [CreatedOn]               DATETIME               NOT NULL,
-    CONSTRAINT [PK_PublishedVersion] PRIMARY KEY CLUSTERED ([Sequence] ASC)
-)
-GO
-CREATE UNIQUE INDEX [IX_PublishedVersion_AggId_Version]   ON [dbo].[PublishedVersion] ([ProcessorName] ASC, [AggregateRootId] ASC, [Version] ASC)
-GO
-
-CREATE TABLE [dbo].[LockKey] (
-    [Name]                   NVARCHAR (128)          NOT NULL,
-    CONSTRAINT [PK_LockKey] PRIMARY KEY CLUSTERED ([Name] ASC)
-)
-GO
+USE MASTER
